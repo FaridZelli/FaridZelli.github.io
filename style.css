@@ -442,14 +442,13 @@ footer p {
 	#hero {
 	min-height: 100vh;
 	padding: 0 0;
-	padding-top: 6rem;
-	padding-bottom: 4rem;
+	padding-top: 8rem;
+	padding-bottom: 6rem;
 	}
 
 	.red-rectangle {
 		width: 80%;
 		flex-direction: column;
-		text-align: center;
 		align-items: center;
 		padding: 1rem;
 	}
@@ -504,7 +503,7 @@ footer p {
 	.social-links {
 		flex-wrap: wrap;
 		justify-content: center;
-		row-gap: 1rem;
+		row-gap: 2rem;
 	}
 	.social-links li {
 		width: 33.33%;
