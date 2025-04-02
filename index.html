@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- https://github.com/FaridZelli -->
+
 <head>
     <title>Farid Zelli</title>
     <meta charset="UTF-8">
@@ -13,7 +15,7 @@
 <body>
 
     <header>
-        <div class="container">
+        <div class="basic-container">
             <h1 class="logo">Farid Zelli</h1>
             <nav>
                 <ul>
@@ -39,7 +41,7 @@
                 </div>
             </div>
             <a href="javascript:void(0)" class="scroll-arrow" aria-label="Scroll Down">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="32" height="32" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
                     <path d="M12 5v.5m0 3v1.5m0 3v6"></path>
                     <path d="M18 13l-6 6"></path>
                     <path d="M6 13l6 6"></path>
@@ -48,14 +50,14 @@
         </section>
 
         <section id="articles">
-            <div class="container">
+            <div class="basic-container">
                 <h2>Recent Articles</h2>
                 <h3 style="text-align: center;">Soon!</h3>
             </div>
         </section>
 
         <section id="contact">
-            <div class="container">
+            <div class="basic-container">
                 <ul class="social-links">
                     <li class="icon-content">
                         <a href="https://github.com/FaridZelli" aria-label="GitHub" data-social="GitHub">
@@ -120,13 +122,16 @@
                         <div class="tooltip">@FaridZellipour</div>
                     </li>
                 </ul>
-
+                  <div class="email-list">
+    <a href="mailto:faridzelli@gmail.com" class="email-item">faridzelli@gmail.com</a>
+    <a href="mailto:faridzelli@proton.me" class="email-item">faridzelli@proton.me</a>
+  </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="basic-container">
             <p>&copy; 2025 Farid Zellipour. All rights reserved.<br>This website does not use cookies.<br>(or biscuits, if you may)</p>
         </div>
     </footer>
@@ -166,7 +171,7 @@
             const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
             const shapeElement = document.createElement("div");
             shapeElement.classList.add("shape", randomShape.name);
-            shapeElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFA742" stroke="#FFA742" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">${randomShape.svg}</svg>`;
+            shapeElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#7F4300" stroke="#FFA742" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">${randomShape.svg}</svg>`;
             const randomX = Math.random() * 100;
             const randomY = Math.random() * 100;
             shapeElement.style.left = `${randomX}%`;
@@ -176,13 +181,28 @@
 
             shapesContainer.appendChild(shapeElement);
         };
+    });
 
         // ------------------------------
         // Bouncing Arrow
         // ------------------------------
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const redRectangle = document.querySelector('.red-rectangle');
+        const scrollArrow = document.querySelector('.scroll-arrow');
 
+        function updateArrowPosition() {
+            const rect = redRectangle.getBoundingClientRect();
+            const arrowTop = rect.bottom + window.scrollY + 20;
+            scrollArrow.style.top = `${arrowTop}px`;
+        }
+
+        window.addEventListener('resize', updateArrowPosition);
+        window.addEventListener('load', updateArrowPosition);
+        updateArrowPosition();
     });
+
+
     document.querySelector(".scroll-arrow").addEventListener("click", function(e) {
         e.preventDefault();
 

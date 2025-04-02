@@ -3,8 +3,9 @@
 /* ---------------------------------------- */
 
 /* ---------------------------------------- */
-/* --- General Styles & Reset --- */
+/* --- General Style & Reset --- */
 /* ---------------------------------------- */
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -16,6 +17,13 @@ html {
 	font-size: 16px;
 }
 
+body {
+	font-family: 'Poppins', 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+	line-height: 1.6;
+	color: #333;
+	background-color: #fdfdfd;
+}
+
 @font-face {
 	font-family: 'Poppins';
 	src: url('media/poppins-latin.woff2') format('woff2');
@@ -23,22 +31,14 @@ html {
 	font-style: normal;
 }
 
-body {
-	font-family: 'Poppins', 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-	line-height: 1.6;
-	color: #333;
-	background-color: #fdfdfd;
-}
-
-.container {
+.basic-container {
 	width: 90%;
 	max-width: 1100px;
 	margin: 0 auto;
 }
 
 h1, h2, h3 {
-	line-height: 1.2;
-	margin-bottom: 0.75em;
+	margin-bottom: 1em;
 }
 
 h1 {
@@ -47,55 +47,57 @@ h1 {
 
 h2 {
 	font-size: 2rem;
-	margin-bottom: 1.5em;
 	text-align: center;
 	color: #444;
 }
 
 h3 {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	color: #555;
 }
 
-p {
-	margin-bottom: 1em;
-}
-
 a {
-	color: #007bff;
-	/* Standard blue link color */
+	color: #3092FF;
 	text-decoration: none;
-	/* Remove underline */
-	transition: color 0.3s ease;
-	/* Smooth color transition on hover */
 }
 
 a:hover, a:focus {
-	color: #0056b3;
-	/* Darker blue on hover/focus */
 	text-decoration: underline;
-	/* Add underline for clarity on hover */
 }
 
 img {
 	max-width: 100%;
-	/* Make images responsive */
 	height: auto;
-	/* Maintain aspect ratio */
 	display: block;
-	/* Remove extra space below images */
 }
 
 ul {
 	list-style: none;
-	/* Remove default bullet points */
+}
+
+/* --- Dark Theme --- */
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #242424;
+		color: #e0e0e0;
+	}
+
+	h2 {
+		color: #ddd;
+	}
+
+	h3 {
+		color: #ccc;
+	}
 }
 
 /* ---------------------------------------- */
 /* --- Header --- */
 /* ---------------------------------------- */
+
 header {
-	padding: 1rem 0;
+	padding: 0.8rem 0;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -104,7 +106,7 @@ header {
 	color: #e0e0e0;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
-	transition: background-color 0.3s ease-in-out 0.1s, backdrop-filter 0.3s ease-in-out 0.1s, padding 0.3s ease-in-out 0.1s;
+	transition: all 0.3s ease-in-out 0.1s;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.8);
 }
 
@@ -112,15 +114,14 @@ header:hover {
 	background-color: rgba(40, 40, 40, 0.8);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-	padding: 2.0rem 0;
+	padding: 1.5rem 0;
 }
 
-header .container {
+header .basic-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	/* Allows wrapping on small screens */
 }
 
 header .logo {
@@ -134,7 +135,7 @@ header nav ul {
 }
 
 header nav li {
-	margin-left: 1.5rem;
+	margin: 0 1.5rem;
 }
 
 header nav a {
@@ -142,7 +143,7 @@ header nav a {
 	font-size: 1rem;
 	color: #e0e0e0;
 	text-decoration: none;
-	transition: transform 0.3s ease-out, color 0.3s ease-out;
+	transition: all 0.3s ease-out;
 	display: block;
 }
 
@@ -153,29 +154,22 @@ header nav a:hover, a:focus {
 }
 
 /* ---------------------------------------- */
-/* --- Main Section --- */
+/* --- Main --- */
 /* ---------------------------------------- */
+
 main section {
 	padding: 4rem 0;
-	/* Vertical spacing between sections */
-	border-bottom: 1px solid #f0f0f0;
-	/* Subtle separator */
-}
-
-main section:last-of-type {
-	border-bottom: none;
-	/* No border on the last section */
 }
 
 /* ---------------------------------------- */
 /* --- Hero Section --- */
 /* ---------------------------------------- */
+
 #hero {
 position: relative;
 overflow: hidden;
 width: 100%;
-padding: 6rem 0;
-padding-top: 8rem;
+padding-top: 7rem;
 background-color: #121212;
 display: flex;
 align-items: center;
@@ -185,32 +179,18 @@ justify-content: center;
 .red-rectangle {
 	position: relative;
 	z-index: 2;
-	width: 75%;
-	max-width: 60rem;
-	max-height: 20rem;
+	width: 60rem;
+	max-width: 95%;
 	background: rgba(160, 0, 0, 0.6);
 	border-radius: 15px;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	display: flex;
 	align-items: center;
-	padding: 12rem 4rem;
+	padding: 4rem;
 	gap: 10%;
-	box-shadow: 0 4px 50px rgba(0, 0, 0, 0.8);
-	transition: background-color 0.5s ease-in-out 0.1s, box-shadow 0.5s ease-in-out 0.1s;
-}
-
-.red-rectangle:hover {
-	background: rgba(160, 0, 0, 0.8);
-	box-shadow: 0 4px 50px rgba(0, 0, 0, 0.5);
-}
-
-.red-rectangle:hover .profile img {
-	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-}
-
-.red-rectangle:hover .bio {
-	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0px 50px rgba(0, 0, 0, 0.8);
+	transition: all 0.5s ease-in-out 0.1s;
 }
 
 .bio {
@@ -219,7 +199,6 @@ justify-content: center;
 	border-radius: 10px;
 	flex: 1;
 	color: #fff;
-	font-size: 1rem;
 	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
 	transition: box-shadow 0.5s ease-in-out 0.1s;
 }
@@ -230,11 +209,23 @@ justify-content: center;
 }
 
 .profile img {
-	width: 100%;
-	max-width: 18rem;
-	border-radius: 32%;
+	width: 18rem;
+	border-radius: 35%;
 	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
 	transition: box-shadow 0.5s ease-in-out 0.1s;
+}
+
+.red-rectangle:hover {
+	background: rgba(160, 0, 0, 0.8);
+	box-shadow: 0 0px 50px rgba(0, 0, 0, 0.5);
+}
+
+.red-rectangle:hover .profile img {
+	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+}
+
+.red-rectangle:hover .bio {
+	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-arrow {
@@ -244,82 +235,223 @@ justify-content: center;
 /* ---------------------------------------- */
 /* --- Article Section --- */
 /* ---------------------------------------- */
-#articles {
-/* background-color: #fdfdfd; */
-}
 
-#about .container {
-max-width: 800px;
-/* Narrower container for readability */
-}
 
 /* ---------------------------------------- */
 /* --- Contact Section --- */
 /* ---------------------------------------- */
+
 #contact {
 text-align: center;
 background: #FFA742;
+padding-top: 5rem;
+padding-bottom: 4rem;
 }
 
-#contact .container {
-max-width: 700px;
-/* Narrower container */
+.email-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+	margin-top: 2rem;
 }
 
-#contact p {
-margin-bottom: 1.5rem;
+.email-item {
+	display: block;
+	background-color: #121212;
+	padding: 0.6rem 1.2rem;
+	border-radius: 25px;
+	color: white;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+	width: 14rem;
 }
 
-#contact a {
-font-weight: bold;
+.email-item:hover {
+	text-decoration: none;
+	transform: scale(1.1);
 }
 
 /* ---------------------------------------- */
 /* --- Footer --- */
 /* ---------------------------------------- */
+
 footer {
-	background-color: #282828;
+	background-color: #242424;
 	color: #e0e0e0;
 	text-align: center;
 	padding: 1.5rem 0;
-	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif';
 	font-size: 0.9rem;
 }
 
 footer p {
-	margin-bottom: 0;
+	margin: 0;
 }
 
 /* ---------------------------------------- */
-/* Mobile Adjustments */
+/* --- Social Media Links --- */
 /* ---------------------------------------- */
+
+.social-links {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.social-links li {
+	position: relative;
+}
+
+.social-links .icon-content {
+	margin: 0 1.2rem;
+	position: relative;
+}
+
+.social-links .icon-content .tooltip {
+	position: absolute;
+	top: -2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #fff;
+	padding: 0.4rem 0.8rem;
+	opacity: 0;
+	border-radius: 10px;
+	pointer-events: none;
+	visibility: hidden;
+	font-size: 0.9rem;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+.social-links .icon-content:hover .tooltip {
+	opacity: 1;
+	visibility: visible;
+	top: -3.2rem;
+}
+
+.social-links .icon-content a {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 50%;
+	color: #4d4d4d;
+	background-color: #fff;
+	transition: all 0.3s ease-in-out;
+}
+
+@media (prefers-color-scheme: dark) {
+	.social-links .icon-content a {
+		color: #fdfdfd;
+		background-color: #121212;
+	}
+}
+
+.social-links .icon-content a:hover {
+	color: white;
+	transform: translateY(0.6rem) scale(1.1);
+}
+
+.social-links .icon-content a::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	transform: scaleY(0);
+	transform-origin: bottom;
+	transition: all 0.3s ease-in-out;
+	z-index: 0;
+}
+
+.social-links .icon-content a:hover::before {
+	transform: scaleY(1);
+}
+
+.social-links .icon-content a svg {
+	position: relative;
+	z-index: 1;
+	width: 60%;
+	height: 60%;
+}
+
+/* ---------------------------------------- */
+/* --- Social Media Icon Colors --- */
+/* ---------------------------------------- */
+
+.social-links .icon-content a[data-social="GitHub"]::before,
+.social-links .icon-content a[data-social="GitHub"]~.tooltip {
+	background-color: #121212;
+}
+
+.social-links .icon-content a[data-social="LinkedIn"]::before,
+.social-links .icon-content a[data-social="LinkedIn"]~.tooltip {
+	background-color: #0965C1;
+}
+
+.social-links .icon-content a[data-social="YouTube"]::before,
+.social-links .icon-content a[data-social="YouTube"]~.tooltip {
+	background-color: #FE0232;
+}
+
+.social-links .icon-content a[data-social="Instagram"]::before,
+.social-links .icon-content a[data-social="Instagram"]~.tooltip {
+	background-color: #D33F93;
+}
+
+.social-links .icon-content a[data-social="X"]::before,
+.social-links .icon-content a[data-social="X"]~.tooltip {
+	background-color: #121212;
+}
+
+.social-links .icon-content a[data-social="Telegram"]::before,
+.social-links .icon-content a[data-social="Telegram"]~.tooltip {
+	background-color: #53A8EB;
+}
+
+/* ---------------------------------------- */
+/* --- Mobile Site --- */
+/* ---------------------------------------- */
+
 @media (max-width: 768px) {
 	html {
 		font-size: 15px;
-		/* Slightly smaller base font on mobile */
 	}
 
-	h1 {
-		font-size: 2rem;
+	header .basic-container {
+		flex-direction: column;
+		align-items: center;
 	}
 
-	h2 {
-		font-size: 1.8rem;
+	header nav ul {
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.5rem;
+	}
+
+	main section {
+		padding: 3rem 0;
 	}
 
 	#hero {
 	min-height: 100vh;
 	padding: 0 0;
-	padding-top: 20%;
+	padding-top: 6rem;
+	padding-bottom: 4rem;
 	}
 
 	.red-rectangle {
 		width: 80%;
-		max-height: 38rem;
 		flex-direction: column;
 		text-align: center;
 		align-items: center;
-		padding: 1rem 1rem;
+		padding: 1rem;
 	}
 
 	.red-rectangle .profile {
@@ -328,53 +460,26 @@ footer p {
 
 	.bio {
 		padding: 2rem;
-		margin: 1rem 0;
-		max-height: 38vh;
+		margin-top: 1rem;
 	}
 
 	.profile img {
 		width: 25vh;
-		max-width: 20rem;
 		margin: auto;
 	}
 
-	header .container {
-		flex-direction: column;
-		/* Stack logo and nav */
-		align-items: center;
+	#contact {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 	}
 
-	header .logo {
-		margin-bottom: 0.5rem;
-		/* Add space below logo when stacked */
-	}
-
-	header nav ul {
-		justify-content: center;
-		/* Center nav items */
-		margin-top: 0.5rem;
-	}
-
-	header nav li {
-		margin-left: 0.75rem;
-		/* Reduce space between nav items */
-		margin-right: 0.75rem;
-	}
-
-	main section {
-		padding: 3rem 0;
-		/* Reduce section padding */
-	}
-
-	.container {
-		width: 95%;
-		/* Slightly more width on mobile */
-	}
+	/* ---------------------------------------- */
+	/* --- Bouncing Arrow --- */
+	/* ---------------------------------------- */
 
 	.scroll-arrow {
 		display: block;
 		position: absolute;
-		top: calc(90vh + 1.5rem);
 		left: 50%;
 		transform: translateX(-50%);
 		color: #e0e0e0;
@@ -391,29 +496,67 @@ footer p {
 		color: #e0e0e0;
 		text-decoration: none;
 	}
-}
 
-@media (max-width: 480px) {
-	.project-grid {
-		/* Ensure single column on very small screens if needed */
-		grid-template-columns: 1fr;
-	}
+	/* ---------------------------------------- */
+	/* --- Social Media Links - Mobile --- */
+	/* ---------------------------------------- */
 
-	header nav ul {
+	.social-links {
 		flex-wrap: wrap;
-		/* Allow nav items to wrap */
+		justify-content: center;
+		row-gap: 1rem;
+	}
+	.social-links li {
+		width: 33.33%;
+		display: flex;
 		justify-content: center;
 	}
+	.social-links .icon-content {
+		margin: 0;
+	}
 
-	header nav li {
-		margin-bottom: 0.5rem;
-		/* Add spacing if wrapped */
+	.social-links .icon-content a {
+		border: none;
+		color: white;
+		transform: none;
+	}
+
+	.social-links .icon-content a:hover {
+		transform: translateY(0) scale(1.1);
+	}
+
+	.social-links .icon-content a::before {
+		display: none;
+	}
+
+	.social-links .icon-content .tooltip {
+		display:none;
+	}
+
+	.social-links .icon-content a[data-social="GitHub"] {
+		background-color: #121212;
+	}
+	.social-links .icon-content a[data-social="LinkedIn"] {
+		background-color: #0965C1;
+	}
+	.social-links .icon-content a[data-social="YouTube"] {
+		background-color: #FE0232;
+	}
+	.social-links .icon-content a[data-social="Instagram"] {
+		background-color: #D33F93;
+	}
+	.social-links .icon-content a[data-social="X"] {
+		background-color: #121212;
+	}
+	.social-links .icon-content a[data-social="Telegram"] {
+		background-color: #53A8EB;
 	}
 }
 
 /* ---------------------------------------- */
 /* --- Floating Shapes --- */
 /* ---------------------------------------- */
+
 .svg-shapes {
 	position: absolute;
 	top: 0;
@@ -481,176 +624,5 @@ footer p {
 	}
 	50% {
 		transform: translateX(-50%) translateY(-10px);
-	}
-}
-
-/* ---------------------------------------- */
-/* --- Social Media Links --- */
-/* ---------------------------------------- */
-
-.social-links {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.social-links li {
-	position: relative;
-}
-
-.social-links .icon-content {
-	margin: 0 20px;
-	position: relative;
-}
-
-.social-links .icon-content .tooltip {
-	position: absolute;
-	bottom: -30px;
-	left: 50%;
-	transform: translateX(-50%);
-	color: #fff;
-	padding: 6px 10px;
-	border-radius: 5px;
-	opacity: 0;
-	pointer-events: none;
-	visibility: hidden;
-	font-size: 14px;
-	transition: all 0.3s ease;
-}
-
-.social-links .icon-content:hover .tooltip {
-	opacity: 1;
-	visibility: visible;
-	bottom: -40px;
-}
-
-.social-links .icon-content a {
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	color: #4d4d4d;
-	background-color: #fff;
-	transition: transform 0.3s ease-in-out;
-}
-
-.social-links .icon-content a:hover {
-	transform: translateY(-10px);
-}
-
-.social-links .icon-content a::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.2);
-	transform: scaleY(0);
-	transform-origin: bottom;
-	transition: transform 0.3s ease-in-out;
-	z-index: 0;
-}
-
-.social-links .icon-content a:hover::before {
-	transform: scaleY(1);
-}
-
-.social-links .icon-content a svg {
-	position: relative;
-	z-index: 1;
-	width: 30px;
-	height: 30px;
-}
-
-.social-links .icon-content a:hover {
-	color: white;
-}
-
-/* Social icon colors */
-.social-links .icon-content a[data-social="GitHub"]::before,
-.social-links .icon-content a[data-social="GitHub"]~.tooltip {
-	background-color: #000308;
-	min-width: 8rem;
-}
-
-.social-links .icon-content a[data-social="LinkedIn"]::before,
-.social-links .icon-content a[data-social="LinkedIn"]~.tooltip {
-	background-color: #0965C1;
-	min-width: 8rem;
-}
-
-.social-links .icon-content a[data-social="YouTube"]::before,
-.social-links .icon-content a[data-social="YouTube"]~.tooltip {
-	background-color: #FE0232;
-	min-width: 8rem;
-}
-
-.social-links .icon-content a[data-social="Instagram"]::before,
-.social-links .icon-content a[data-social="Instagram"]~.tooltip {
-	background-color: #D33F93;
-	min-width: 8rem;
-}
-
-.social-links .icon-content a[data-social="X"]::before,
-.social-links .icon-content a[data-social="X"]~.tooltip {
-	background-color: #0E1318;
-	min-width: 8rem;
-}
-
-.social-links .icon-content a[data-social="Telegram"]::before,
-.social-links .icon-content a[data-social="Telegram"]~.tooltip {
-	background-color: #53A8EB;
-	min-width: 8rem;
-}
-
-/* Mobile: Two rows of icons (3 per row) with filled circles and increased spacing */
-@media (max-width: 480px) {
-	.social-links {
-		flex-wrap: wrap;
-		justify-content: center;
-		/* Use gap to increase vertical spacing between rows */
-		row-gap: 40px;
-	}
-	.social-links li {
-		width: 33.33%;
-		display: flex;
-		justify-content: center;
-	}
-	.social-links .icon-content {
-		margin: 0;
-	}
-
-	.social-links .icon-content a {
-		border: none;
-		color: white;
-		transform: none;
-	}
-	/* Remove the pseudo-element effect */
-	.social-links .icon-content a::before {
-		display: none;
-	}
-	/* Apply brand colors as background for each icon */
-	.social-links .icon-content a[data-social="GitHub"] {
-		background-color: #000308;
-	}
-	.social-links .icon-content a[data-social="LinkedIn"] {
-		background-color: #0965C1;
-	}
-	.social-links .icon-content a[data-social="YouTube"] {
-		background-color: #FE0232;
-	}
-	.social-links .icon-content a[data-social="Instagram"] {
-		background-color: #D33F93;
-	}
-	.social-links .icon-content a[data-social="X"] {
-		background-color: #0E1318;
-	}
-	.social-links .icon-content a[data-social="Telegram"] {
-		background-color: #53A8EB;
 	}
 }
