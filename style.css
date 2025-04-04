@@ -130,6 +130,11 @@ header .logo {
 	margin-bottom: 0;
 }
 
+header .logo a {
+	color: #e0e0e0;
+	text-decoration: none;
+}
+
 header nav ul {
 	display: flex;
 }
