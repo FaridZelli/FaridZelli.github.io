@@ -61,7 +61,7 @@ a {
 	text-decoration: none;
 }
 
-@media (min-width: 769px) {a:hover, a:focus {
+@media (hover: hover) {a:hover, a:focus {
 	text-decoration: underline;
 }}
 
@@ -110,7 +110,7 @@ header {
 	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-@media (min-width: 769px) {header:hover {
+@media (hover: hover) {header:hover {
 	background-color: rgba(40, 40, 40, 0.8);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
@@ -152,7 +152,7 @@ header nav a {
 	display: block;
 }
 
-@media (min-width: 769px) {header nav a:hover, a:focus {
+@media (hover: hover) {header nav a:hover, a:focus {
 	color: white;
 	text-decoration: none;
 	transform: scale(1.1);
@@ -215,7 +215,7 @@ justify-content: center;
 	transition: box-shadow 0.5s ease-in-out 0.1s;
 }
 
-@media (min-width: 769px) {
+@media (hover: hover) {
 
 .red-rectangle:hover {
 	background: rgba(140, 0, 25, 0.8);
@@ -268,7 +268,7 @@ padding: 1rem 0;
 	width: 12rem;
 }
 
-@media (min-width: 769px) {.email-item:hover {
+@media (hover: hover) {.email-item:hover {
 	text-decoration: none;
 	transform: scale(1.1);
 }}
@@ -324,6 +324,10 @@ padding: 1rem 0;
 	top: -1.8rem;
 }
 
+@media (hover: none) {.social-links .icon-content .tooltip {
+		display:none;
+}}
+
 .social-links .icon-content a {
 	position: relative;
 	overflow: hidden;
@@ -336,7 +340,7 @@ padding: 1rem 0;
 	transition: all 0.3s ease-in-out;
 }
 
-@media (min-width: 769px) {.social-links .icon-content a:hover {
+@media (hover: hover) {.social-links .icon-content a:hover {
 	color: white;
 	transform: translateY(0.6rem) scale(1.1);
 }}
@@ -352,7 +356,7 @@ padding: 1rem 0;
 /* --- Social Media Icon Colors --- */
 /* ---------------------------------------- */
 
-@media (min-width: 769px) {
+@media (hover: hover) {
 
 .social-links .icon-content a[data-social="GitHub"]:hover {color: #F0F6FC}
 .social-links .icon-content a[data-social="GitHub"]~.tooltip {background-color: #F0F6FC; color: black;}
@@ -449,6 +453,11 @@ padding: 1rem 0;
 		position: relative;
 	}
 
+  .social-links .icon-content a:hover {
+  	color: white;
+  	transform: translateY(0rem) scale(1.1);
+}
+	
 	.social-links .icon-content .tooltip {
 		display:none;
 	}
