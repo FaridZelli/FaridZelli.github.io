@@ -230,10 +230,6 @@ justify-content: center;
 	box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
 
-.scroll-arrow {
-	display: none;
-}
-
 }
 
 /* ---------------------------------------- */
@@ -396,7 +392,6 @@ padding: 1rem 0;
 	header nav ul {
 		flex-wrap: wrap;
 		justify-content: center;
-/* 		margin: 0.5rem; */
 	}
 
 	main section {
@@ -463,6 +458,11 @@ padding: 1rem 0;
 	}
 
 }
+
+@media (min-width: 769px) {
+  .scroll-arrow {
+  	display: none;
+}}
 
 /* ---------------------------------------- */
 /* --- Floating Shapes --- */
