@@ -37,22 +37,18 @@ body {
 	margin: 0 auto;
 }
 
-h1, h2, h3 {
-	margin-bottom: 1em;
-}
-
 h1 {
-	font-size: 2.5rem;
+	font-size: 1.8rem;
+	color: #333;
 }
 
 h2 {
-	font-size: 2rem;
-	text-align: center;
+	font-size: 1.5rem;
 	color: #444;
 }
 
 h3 {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: #555;
 }
 
@@ -80,7 +76,11 @@ ul {
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #1B1B1B;
-		color: #e0e0e0;
+		color: #eee;
+	}
+
+	h1 {
+		color: #eee;
 	}
 
 	h2 {
@@ -97,7 +97,7 @@ ul {
 /* ---------------------------------------- */
 
 header {
-	padding: 0.8rem 0;
+	padding: 0.6rem 0;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -110,12 +110,14 @@ header {
 	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-@media (hover: hover) {header:hover {
-	background-color: rgba(40, 40, 40, 0.8);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	padding: 1.5rem 0;
-}}
+@media (min-width: 769px) {
+	@media (hover: hover) {header:hover {
+		background-color: rgba(40, 40, 40, 0.8);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		padding: 1.2rem 0;
+	}}
+}
 
 header .basic-container {
 	display: flex;
@@ -127,12 +129,13 @@ header .basic-container {
 header .logo {
 	font-size: 1.8rem;
 	font-weight: bold;
-	margin-bottom: 0;
+	margin: 0 1.5rem;
 }
 
 header .logo a {
 	color: #e0e0e0;
 	text-decoration: none;
+	transition: all 0.3s ease-out;
 }
 
 header nav ul {
@@ -140,7 +143,7 @@ header nav ul {
 }
 
 header nav li {
-	margin: 0 1.5rem;
+/* 	margin: 0 1.5rem; */
 }
 
 header nav a {
@@ -150,20 +153,26 @@ header nav a {
 	text-decoration: none;
 	transition: all 0.3s ease-out;
 	display: block;
+	margin-right: 1.5rem;
 }
 
-@media (hover: hover) {header nav a:hover, a:focus {
-	color: white;
-	text-decoration: none;
-	transform: scale(1.1);
-}}
+@media (min-width: 769px) {
+	@media (hover: hover) {header .logo a:hover, a:focus {
+		color: white;
+		text-decoration: none;
+	}}
+	@media (hover: hover) {header nav a:hover, a:focus {
+		color: white;
+		text-decoration: none;
+	}}
+}
 
 /* ---------------------------------------- */
 /* --- Main --- */
 /* ---------------------------------------- */
 
 main section {
-	padding: 4rem 0;
+	padding: 4rem;
 }
 
 /* ---------------------------------------- */
@@ -174,6 +183,7 @@ main section {
 position: relative;
 overflow: hidden;
 width: 100%;
+padding: 3rem 0;
 padding-top: 7rem;
 background-color: #121212;
 display: flex;
@@ -233,9 +243,20 @@ justify-content: center;
 }
 
 /* ---------------------------------------- */
-/* --- Article Section --- */
+/* --- Popular Articles Section --- */
 /* ---------------------------------------- */
 
+#popular {
+
+}
+
+/* ---------------------------------------- */
+/* --- Content Section --- */
+/* ---------------------------------------- */
+
+#content {
+
+}
 
 /* ---------------------------------------- */
 /* --- Footer --- */
@@ -378,14 +399,19 @@ padding: 1rem 0;
 /* --- Mobile Site --- */
 /* ---------------------------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 412px) {
 
 	html {
 		font-size: 15px;
 	}
 
+	@media (hover: hover) {a:hover, a:focus {
+		text-decoration: unset;
+	}}
+
 	header .basic-container {
-		flex-direction: column;
+		height: 2.8rem;
+		flex-direction: row;
 		align-items: center;
 	}
 
@@ -394,13 +420,35 @@ padding: 1rem 0;
 		justify-content: center;
 	}
 
+	header nav a {
+		margin-right: 1.2rem;
+	}
+
+	header .logo {
+		font-size: 1.6rem;
+		font-weight: bold;
+		margin: 0 1.2rem;
+	}
+
 	main section {
-		padding: 3rem 0;
+		padding: 3rem;
+	}
+
+	h1 {
+		font-size: 1.6rem;
+	}
+
+	h2 {
+		font-size: 1.4rem;
+	}
+
+	h3 {
+		font-size: 1.2rem;
 	}
 
 	#hero {
 	min-height: 100vh;
-	padding: 6rem 0;
+	padding: 5rem 0;
 	padding-bottom: 8rem;
 	}
 
@@ -452,9 +500,24 @@ padding: 1rem 0;
   	color: white;
   	transform: translateY(0rem) scale(1.1);
 }
-	
+
 	.social-links .icon-content .tooltip {
 		display:none;
+	}
+
+	@media (max-height: 412px) {
+		header .basic-container {
+			height: 2.5rem;
+		}
+		.profile img {
+			display: none;
+		}
+		#hero {
+		padding: 8rem 0;
+		}
+		.bio {
+			margin-top: 0rem;
+		}
 	}
 
 }
