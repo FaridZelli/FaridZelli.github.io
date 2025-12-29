@@ -119,18 +119,18 @@ main article {
 }
 
 .article-container h1 {
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	margin-top: 1rem;
+/* 	margin-bottom: 1rem; */
 }
 
 .article-container h2 {
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	margin-top: 1rem;
+/* 	margin-bottom: 1rem; */
 }
 
 .article-container h3 {
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	margin-top: 1rem;
+/* 	margin-bottom: 1rem; */
 }
 
 .article-container p {
