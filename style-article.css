@@ -18,7 +18,7 @@ padding-top: 7rem;
 	margin: 0 4rem;
 }
 
-.bio {
+.red-rectangle-content {
 	width: 100%;
 }
 
@@ -27,20 +27,6 @@ padding-top: 7rem;
 /* ---------------------------------------- */
 
 @media (max-width: 768px), (max-height: 412px) {
-
-	html {
-		font-size: 15px;
-	}
-
-	@media (hover: hover) {a:hover, a:focus {
-		text-decoration: unset;
-	}}
-
-	@media (max-height: 412px) {
-		header .basic-container {
-			height: 2.2rem;
-		}
-	}
 
 	main section {
 		padding: 3rem;
@@ -61,7 +47,7 @@ padding-top: 7rem;
 		gap: 0;
 	}
 
-	.bio {
+	.red-rectangle-content {
 		width: 100%;
 		padding: 1.5rem;
 		margin-top: unset;

@@ -93,6 +93,52 @@ ul {
 }
 
 /* ---------------------------------------- */
+/* --- Main --- */
+/* ---------------------------------------- */
+
+main section {
+	padding: 2rem 1rem;
+}
+
+main article {
+	padding: 2rem 1rem;
+}
+
+/* ---------------------------------------- */
+/* --- Content Section --- */
+/* ---------------------------------------- */
+
+#content {
+
+}
+
+.article-container {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.article-container h1 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.article-container h2 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.article-container h3 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.article-container p {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+/* ---------------------------------------- */
 /* --- Header --- */
 /* ---------------------------------------- */
 
@@ -168,14 +214,6 @@ header nav a {
 }
 
 /* ---------------------------------------- */
-/* --- Main --- */
-/* ---------------------------------------- */
-
-main section {
-	padding: 4rem;
-}
-
-/* ---------------------------------------- */
 /* --- Hero Section --- */
 /* ---------------------------------------- */
 
@@ -207,7 +245,7 @@ justify-content: center;
 	transition: box-shadow 0.5s ease-in-out 0.1s, background-color 0.5s ease-in-out 0.1s;
 }
 
-.bio {
+.red-rectangle-content {
 	background: rgba(0, 0, 0, 0.5);
 	width: 28rem;
 	padding: 2rem;
@@ -216,6 +254,18 @@ justify-content: center;
 	color: white;
 	box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.4);
 	transition: box-shadow 0.5s ease-in-out 0.1s;
+}
+
+.red-rectangle-content h1 {
+	color: #eee;
+}
+
+.red-rectangle-content h2 {
+	color: #eee;
+}
+
+.red-rectangle-content h3 {
+	color: #eee;
 }
 
 .profile img {
@@ -236,25 +286,9 @@ justify-content: center;
 	box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
 
-.red-rectangle:hover .bio {
+.red-rectangle:hover .red-rectangle-content {
 	box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
-
-}
-
-/* ---------------------------------------- */
-/* --- Popular Articles Section --- */
-/* ---------------------------------------- */
-
-#popular {
-
-}
-
-/* ---------------------------------------- */
-/* --- Content Section --- */
-/* ---------------------------------------- */
-
-#content {
 
 }
 
@@ -464,7 +498,7 @@ padding: 1rem 0;
 		order: -1;
 	}
 
-	.bio {
+	.red-rectangle-content {
 		width: auto;
 		padding: 1.5rem;
 		margin-top: 1rem;
@@ -515,7 +549,7 @@ padding: 1rem 0;
 		#hero {
 		padding: 8rem 0;
 		}
-		.bio {
+		.red-rectangle-content {
 			margin-top: 0rem;
 		}
 	}

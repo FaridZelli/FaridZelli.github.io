@@ -8,30 +8,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="darkreader-lock">
-    <meta name="description" content="Learn about Farid Zelli.">
+    <meta name="description" content="Learn more about Farid Zelli.">
     <meta property="og:title" content="Farid Zelli">
-    <meta property="og:description" content="Learn about Farid Zelli.">
+    <meta property="og:description" content="Learn more about Farid Zelli.">
     <meta property="og:url" content="https://faridzelli.com/articles">
 
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../style-article.css">
-    <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style-article.css">
+    <link rel="icon" href="/media/favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
 
 <!-- Header -->
 
-    <script src="../dynamic-shapes-article.js"></script>
-    <script src="../article-index.js"></script>
+    <script src="/dynamic-shapes-article.js"></script>
 
     <header>
         <div class="basic-container">
-            <h1 class="logo"><a href="/">Farid Zelli</a></h1>
+            <h1 class="logo"><a href="/" aria-label="Go to homepage">Farid Zelli</a></h1>
             <nav>
                 <ul>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li><a href="/about/">About Me</a></li>
+                    <li><a href="/articles/" aria-label="View articles">Articles</a></li>
+                    <li><a href="/about/" aria-label="Learn more about the author">About Me</a></li>
                 </ul>
             </nav>
         </div>
@@ -43,22 +42,54 @@
         <section id="hero">
             <div class="svg-shapes"></div>
             <div class="basic-container">
-				<div class="red-rectangle">
-					<div class="bio">
-						<h1 style="color: #eee;">
-						About Me
-						</h1>
-					</div>
-				</div>
-			</div>
+                <div class="red-rectangle">
+                    <div class="red-rectangle-content">
+                        <h1>About me</h1>
+                    </div>
+                </div>
+            </div>
         </section>
 
-		<section id="content">
-			<div class="basic-container">
-				<h1 style="text-align: center;">WIP</h1>
-			</div>
-		</section>
+        <article id="content">
+            <div class="article-container">
+                <p>I'm an audio-visual creative with more than a decade of experience in the fields of networking and open-source software. <a href="https://faridzelli.com" >faridzelli.com</a> is the only personal website of Farid Zellipour.</p>
+                <p>Here, I aim to cover topics that I find interesting or which appear to be underrepresented in quality resources. My online journal is not intended to be a tech blog, but a place where I am able voice my subjective opinion without having to follow the general consensus.</p>
+                <p>I've designed this website from scratch with accessability in mind. Please report any issues to the email addresses provided below.</p>
+            </div>
+        </article>
     </main>
+
+<!-- Bouncing Arrow Script -->
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const redRectangle = document.querySelector('.red-rectangle');
+        const scrollArrow = document.querySelector('.scroll-arrow');
+
+        function updateArrowPosition() {
+            const rect = redRectangle.getBoundingClientRect();
+            const arrowTop = rect.bottom + window.scrollY + 20;
+            scrollArrow.style.top = `${arrowTop}px`;
+        }
+
+        window.addEventListener('resize', updateArrowPosition);
+        window.addEventListener('load', updateArrowPosition);
+        updateArrowPosition();
+    });
+    document.querySelector(".scroll-arrow").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const header = document.querySelector("header");
+        const hero = document.querySelector("#hero");
+        const headerHeight = header.offsetHeight;
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+
+        window.scrollTo({
+            top: heroBottom - headerHeight,
+            behavior: "smooth"
+        });
+    });
+    </script>
 
 <!-- Footer -->
 

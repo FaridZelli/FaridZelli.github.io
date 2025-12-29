@@ -13,23 +13,23 @@
     <meta property="og:description" content="Hey, I'm Farid Zelli — an audio-visual creative with a longstanding background in data privacy and open-source software.">
     <meta property="og:url" content="https://faridzelli.com/">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/media/favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
 
 <!-- Header -->
 
-    <script src="dynamic-shapes-home.js"></script>
+    <script src="/dynamic-shapes-home.js"></script>
 
     <header>
         <div class="basic-container">
-            <h1 class="logo"><a href="/">Farid Zelli</a></h1>
+            <h1 class="logo"><a href="/" aria-label="Go to homepage">Farid Zelli</a></h1>
             <nav>
                 <ul>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li><a href="/about/">About Me</a></li>
+                    <li><a href="/articles/" aria-label="View articles">Articles</a></li>
+                    <li><a href="/about/" aria-label="Learn more about the author">About Me</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,14 +41,11 @@
         <section id="hero">
             <div class="svg-shapes"></div>
             <div class="red-rectangle">
-                <div class="bio">
-                    <p>
-                        Welcome to my journal!<br> <br>
-                        I'm Farid Zelli, an audio-visual creative with a longstanding background in data privacy and open-source software.
-                    </p>
+                <div class="red-rectangle-content">
+                    <p>Welcome to my journal!<br><br>I'm Farid Zelli, an audio-visual creative with a longstanding background in data privacy and open-source software.</p>
                 </div>
                 <div class="profile">
-                    <img src="media/index/profile.jpg" alt="Profile Picture">
+                    <img src="/media/index/profile.jpg" alt="Profile Picture">
                 </div>
             </div>
             <a href="javascript:void(0)" class="scroll-arrow" aria-label="Scroll Down">
@@ -60,16 +57,14 @@
             </a>
         </section>
 
-        <section id="popular">
-            <div class="basic-container">
-                <h1 style="text-align: center;">Popular Articles</h1>
-                <br>
-                <h3 style="text-align: center;">Coming Soon!</h3>
+        <article id="content">
+            <div class="article-container">
+                <h1 style="text-align: center;">Popular Articles</h1><h3 style="text-align: center;">Coming Soon!</h3>
             </div>
-        </section>
+        </article>
     </main>
 
-<!-- Bouncing Arrow -->
+<!-- Bouncing Arrow Script -->
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
