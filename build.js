@@ -85,16 +85,41 @@ function processFile(filePath, config) {
 }
 
 /**
+ * Remove orphaned .html files (no matching .md in source) and log deletions
+ * @param {import('./build-configs.js').BuildConfig} config
+ */
+function cleanupOrphanedHtml(config) {
+  if (!fs.existsSync(config.outDir)) return;
+
+  // Get current .html files in output
+  const htmlFiles = fs.readdirSync(config.outDir).filter(f => f.endsWith('.html'));
+
+  // Build set of valid .md base names from source (if accessible)
+  const validMdBases = new Set();
+  if (fs.existsSync(config.srcDir)) {
+    const mdFiles = fs.readdirSync(config.srcDir).filter(f => f.endsWith('.md'));
+    mdFiles.forEach(f => validMdBases.add(path.basename(f, '.md')));
+  }
+
+  // Delete/log only orphaned files
+  htmlFiles.forEach(htmlFile => {
+    const baseName = path.basename(htmlFile, '.html');
+    if (!validMdBases.has(baseName)) {
+      const fullPath = path.join(config.outDir, htmlFile);
+      fs.unlinkSync(fullPath);
+      console.log(`🗑️ Removed orphan: ${config.name}/${htmlFile}`);
+    }
+  });
+}
+
+/**
  * Build all files for a configuration section
  * @param {import('./build-configs.js').BuildConfig} config
  * @returns {string[]} Physical paths of successfully built files
  */
 function buildConfig(config) {
+  cleanupOrphanedHtml(config);
   if (!fs.existsSync(config.srcDir)) {
-    if (config.name === 'articles') {
-      console.error(`❌ Critical: ${config.srcDir} not found`);
-      process.exit(1);
-    }
     console.warn(`⚠️ Skipping ${config.name}: Source directory missing`);
     return [];
   }

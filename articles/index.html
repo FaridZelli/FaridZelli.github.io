@@ -42,7 +42,7 @@
 
     <script src="/external-links.js"></script>
     <script src="/dynamic-shapes-article.js"></script>
-    <script type="module" src="/articles-list-generator.js"></script>
+    <script type="module" src="/article-utils.js"></script>
 
 <!-- Header -->
 
@@ -74,6 +74,26 @@
 
         <article id="content" class="markdown-body">
             <div class="article-container">
+                <blockquote>
+                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی مرورگر شما «ساعت رسمی ایران» است.<br>
+هم‌میهن محترم، من به دلیل محدودیت زمانی مقالاتم را به زبان انگلیسی منتشر می‌کنم تا دسترسی جهانی داشته باشند.<br>
+دوستدار شما — فرید ظلی پور
+                </blockquote>
+                </p>
+                <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                const TARGET = 'Asia/Tehran';
+                try {
+                    const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    if (userTz === TARGET) {
+                    document.getElementById('tz-para').style.display = 'block';
+                    }
+                } catch (e) {
+                    console.warn('Timezone detection failed; content remains hidden', e);
+                }
+                });
+                </script>
+
                 <ul id="article-list"></ul>
             </div>
         </article>

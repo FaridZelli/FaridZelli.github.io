@@ -2,7 +2,26 @@
 // https://github.com/FaridZelli
 // ----------------------------------------
 
-import { ARTICLE_FILE_NAMES } from './articles-list-index.js';
+import { ARTICLE_FILE_NAMES } from './article-list-index.js';
+
+// Base styling for date text elements (reused across components)
+const BASE_DATE_STYLE = {
+	color: '#888',
+	fontFamily: 'monospace',
+	fontSize: '0.9rem'
+};
+
+// Format Date object to "Month DaySuffix, Year" (e.g., "February 1st, 2026")
+function formatArticleDate(date) {
+	const day = date.getDate();
+	const suffix =
+	day % 10 === 1 && day !== 11 ? 'st' :
+	day % 10 === 2 && day !== 12 ? 'nd' :
+	day % 10 === 3 && day !== 13 ? 'rd' : 'th';
+	const monthYear = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+	const [month, year] = monthYear.split(' ');
+	return `${month} ${day}${suffix}, ${year}`;
+}
 
 initializeArticleIndex();
 
@@ -10,11 +29,9 @@ async function initializeArticleIndex() {
 	const articleMetadataList = await loadAllArticleMetadata();
 	const sortedArticles = sortArticlesByDateDescending(articleMetadataList);
 
-	// Render full list (existing behavior preserved)
 	renderArticlesToContainer(sortedArticles, 'article-list');
-
-	// Render recent articles list (new requirement)
 	renderArticlesToContainer(sortedArticles.slice(0, 5), 'article-list-recent');
+	renderArticleDate('article-date'); // New component renderer
 }
 
 // ------------------------------
@@ -94,9 +111,8 @@ function sortArticlesByDateDescending(articles) {
 
 function renderArticlesToContainer(articles, containerId) {
 	const container = document.getElementById(containerId);
-	if (!container) return; // Gracefully skip missing containers
-	
-	// Apply consistent list styling (matches original behavior)
+	if (!container) return;
+
 	Object.assign(container.style, {
 		listStyle: 'none',
 		padding: '0',
@@ -108,7 +124,6 @@ function renderArticlesToContainer(articles, containerId) {
 		const listItem = document.createElement('li');
 		listItem.style.marginBottom = '1.2rem';
 
-		// Title link
 		const titleLink = document.createElement('a');
 		titleLink.href = article.fileName;
 		titleLink.textContent = article.title;
@@ -118,32 +133,14 @@ function renderArticlesToContainer(articles, containerId) {
 		});
 		listItem.appendChild(titleLink);
 
-		// Publication date
 		if (article.dateString) {
 			const dateLine = document.createElement('div');
-			function getOrdinalDay(date) {
-				const day = date.getDate();
-				const suffix =
-				day % 10 === 1 && day !== 11 ? 'st' :
-				day % 10 === 2 && day !== 12 ? 'nd' :
-				day % 10 === 3 && day !== 13 ? 'rd' : 'th';
-				return `${day}${suffix}`;
-			}
-			const monthYear = article.publicationDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-			const [month, year] = monthYear.split(' ');
-			const dayWithSuffix = getOrdinalDay(article.publicationDate);
-			const formattedDate = `${month} ${dayWithSuffix}, ${year}`;
-			dateLine.textContent = formattedDate;
-			Object.assign(dateLine.style, {
-				color: '#888',
-				fontFamily: 'monospace',
-				fontSize: '0.9rem',
-				marginTop: '0.2rem'
-			});
+			dateLine.textContent = formatArticleDate(article.publicationDate);
+			// Reuse base style + contextual margin
+			Object.assign(dateLine.style, BASE_DATE_STYLE, { marginTop: '0.2rem' });
 			listItem.appendChild(dateLine);
 		}
 
-		// Description
 		if (article.description) {
 			const desc = document.createElement('div');
 			desc.textContent = article.description;
@@ -152,5 +149,61 @@ function renderArticlesToContainer(articles, containerId) {
 		}
 
 		container.appendChild(listItem);
+	}
+}
+
+// ------------------------------
+// Render current page's publication/modification dates
+// ------------------------------
+
+function renderArticleDate(containerId) {
+	const container = document.getElementById(containerId);
+	if (!container) return;
+
+	// Reset container styling to remove default spacing (consistent with article-list containers)
+	Object.assign(container.style, {
+		padding: '0',
+		margin: '0',
+		listStyle: 'none' // Safe for divs; critical if container is a list element
+	});
+	container.innerHTML = ''; // Clear prior content to prevent duplication
+
+	// Extract dates from CURRENT document's meta tags (no fetch needed)
+	const pubMeta = document.querySelector('meta[property="article:published_time"]');
+	if (!pubMeta?.content) return;
+
+	try {
+		const pubDate = new Date(pubMeta.content);
+		if (isNaN(pubDate)) throw new Error('Invalid published date');
+
+		// Format published line
+		const pubLine = `Published: ${formatArticleDate(pubDate)}`;
+		const pubDiv = document.createElement('div');
+		pubDiv.textContent = pubLine;
+		Object.assign(pubDiv.style, BASE_DATE_STYLE); // No top margin for first line
+		container.appendChild(pubDiv);
+
+		// Check modified date (only show if different calendar day)
+		const modMeta = document.querySelector('meta[property="article:modified_time"]');
+		if (modMeta?.content) {
+			const modDate = new Date(modMeta.content);
+			if (!isNaN(modDate)) {
+				// Compare date components only (ignore time)
+				const pubKey = pubDate.toDateString();
+				const modKey = modDate.toDateString();
+
+				if (pubKey !== modKey) {
+					const modLine = `Last modified: ${formatArticleDate(modDate)}`;
+					const modDiv = document.createElement('div');
+					modDiv.textContent = modLine;
+					// Reuse base style + consistent spacing between lines
+					Object.assign(modDiv.style, BASE_DATE_STYLE, { marginTop: '0.2rem' });
+					container.appendChild(modDiv);
+				}
+			}
+		}
+	} catch (e) {
+		console.error('Error rendering article-date:', e);
+		container.innerHTML = ''; // Ensure clean state on failure
 	}
 }

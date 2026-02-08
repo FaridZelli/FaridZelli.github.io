@@ -19,18 +19,18 @@ module.exports = [
     name: 'articles',
     srcDir: path.join(__dirname, 'articles-markdown'),
     outDir: path.join(__dirname, 'articles'),
-    template: path.join(__dirname, 'build-template-articles.html.txt'),
+    template: path.join(__dirname, 'build-template-article.html.txt'),
     requiredFields: ['title', 'description', 'hero', 'datePublished', 'dateModified'],
 
     generateIndexFile: true,
-    indexOutputPath: path.join(__dirname, 'articles-list-index.js'),
+    indexOutputPath: path.join(__dirname, 'article-list-index.js'),
     indexVariableName: 'ARTICLE_FILE_NAMES'
   },
   {
     name: 'about',
     srcDir: path.join(__dirname, 'about-markdown'),
     outDir: path.join(__dirname, 'about'),
-    template: path.join(__dirname, 'build-template-articles.html.txt'),
+    template: path.join(__dirname, 'build-template-article.html.txt'),
     requiredFields: ['title', 'description', 'hero'],
 
     generateIndexFile: false
