@@ -75,13 +75,13 @@
         <article id="content" class="markdown-body">
             <div class="article-container">
                 <blockquote>
-                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی مرورگر شما «ساعت رسمی ایران» است.<br>
-هم‌میهن محترم، من به دلیل محدودیت زمانی مقالاتم را به زبان انگلیسی منتشر می‌کنم تا دسترسی جهانی داشته باشند.<br>
-دوستدار شما — فرید ظلی پور
+                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی شما «ساعت رسمی ایران» است.<br>
+هم‌میهن گرامی، مقالات به دلیل محدودیت زمانی تنها به زبان انگلیسی منتشر می‌شوند. توصیه می‌کنم برای ترجمه از هوش مصنوعی استفاده کنید.
                 </blockquote>
                 </p>
                 <script>
                 document.addEventListener('DOMContentLoaded', () => {
+                if (document.getElementById('disable-tz-message')) return;
                 const TARGET = 'Asia/Tehran';
                 try {
                     const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -93,6 +93,7 @@
                 }
                 });
                 </script>
+                <ul id="article-date"></ul>
 
                 {{ARTICLE_CONTENT}}
             </div>

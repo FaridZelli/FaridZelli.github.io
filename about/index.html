@@ -75,13 +75,13 @@
         <article id="content" class="markdown-body">
             <div class="article-container">
                 <blockquote>
-                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی مرورگر شما «ساعت رسمی ایران» است.<br>
-هم‌میهن محترم، من به دلیل محدودیت زمانی مقالاتم را به زبان انگلیسی منتشر می‌کنم تا دسترسی جهانی داشته باشند.<br>
-دوستدار شما — فرید ظلی پور
+                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی شما «ساعت رسمی ایران» است.<br>
+هم‌میهن گرامی، مقالات به دلیل محدودیت زمانی تنها به زبان انگلیسی منتشر می‌شوند. توصیه می‌کنم برای ترجمه از هوش مصنوعی استفاده کنید.
                 </blockquote>
                 </p>
                 <script>
                 document.addEventListener('DOMContentLoaded', () => {
+                if (document.getElementById('disable-tz-message')) return;
                 const TARGET = 'Asia/Tehran';
                 try {
                     const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -93,8 +93,10 @@
                 }
                 });
                 </script>
+                <ul id="article-date"></ul>
 
-                <p>I&#39;m an audio-visual creative with more than a decade of experience in the fields of networking, data privacy and open-source software. <a href="https://faridzelli.com/">faridzelli.com</a> is the only personal website of Farid Zellipour.</p>
+                <p><span id="disable-tz-message" style="display:none" aria-hidden="true"></span></p>
+<p>I&#39;m an audio-visual creative with more than a decade of experience in the fields of networking, data privacy and open-source software. <a href="https://faridzelli.com/">faridzelli.com</a> is the only personal website of Farid Zellipour.</p>
 <p>Here, I aim to cover topics I find interesting, or that may have been overlooked by major publications. My online journal is not intended to be a tech blog, but rather a place where I am able to voice my subjective opinions without having to follow the general consensus.</p>
 <p>This website uses <a href="https://github.com/markedjs/marked">Marked</a>*, <a href="https://github.com/jxson/front-matter/">front-matter</a>*, <a href="https://github.com/sindresorhus/github-markdown-css">github-markdown-css</a>* and <a href="https://github.com/paulmillr/chokidar">Chokidar</a>* to generate article pages from Markdown files via a custom build script, with icons provided by <a href="https://github.com/tabler/tabler-icons">Tabler</a>* and <a href="https://github.com/tabler/tabler-icons">Feather</a>*.</p>
 <p>I&#39;ve designed this website from scratch with accessibility in mind. Please report any issues to the email addresses provided below.</p>

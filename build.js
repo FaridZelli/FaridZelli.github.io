@@ -36,18 +36,21 @@ function processFile(filePath, config) {
   try {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const { attributes, body } = fm(fileContent);
-
-    // Validate required front-matter
-    const missing = config.requiredFields.filter(f => !attributes[f]);
-    if (missing.length) {
-      console.warn(`⚠️ Skipping ${config.name}/${path.basename(filePath)}: Missing [${missing.join(', ')}]`);
-      return null;
-    }
-
     const htmlContent = marked(body);
     const baseName = path.basename(filePath, '.md');
     const fileName = `${baseName}.html`;
     const isIndex = fileName === 'index.html';
+
+    // Validate required front-matter
+    const fieldsToValidate = isIndex
+    ? config.requiredFields.filter(f => !['datePublished', 'dateModified'].includes(f))
+    : config.requiredFields;
+
+    const missing = fieldsToValidate.filter(f => !attributes[f]);
+    if (missing.length) {
+      console.warn(`⚠️ Skipping ${config.name}/${path.basename(filePath)}: Missing [${missing.join(', ')}]`);
+      return null;
+    }
 
     // URL rationale: Trailing slash for directory indexes aligns with RFC 3986 and HTTP spec
     const templateUrl = isIndex

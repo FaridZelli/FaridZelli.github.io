@@ -26,8 +26,8 @@
     <meta property="og:url" content="https://faridzelli.com/articles/articles/">
     <meta property="og:site_name" content="Farid Zelli">
 
-    <meta property="article:published_time" content="Thu Jan 01 2026 03:30:00 GMT+0330 (Iran Standard Time)">
-    <meta property="article:modified_time" content="Thu Jan 01 2026 03:30:00 GMT+0330 (Iran Standard Time)">
+    <meta property="article:published_time" content="">
+    <meta property="article:modified_time" content="">
 
     <meta name="twitter:title" content="Articles | Farid Zelli">
     <meta name="twitter:description" content="List of articles written by Farid Zelli.">
@@ -75,13 +75,13 @@
         <article id="content" class="markdown-body">
             <div class="article-container">
                 <blockquote>
-                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی مرورگر شما «ساعت رسمی ایران» است.<br>
-هم‌میهن محترم، من به دلیل محدودیت زمانی مقالاتم را به زبان انگلیسی منتشر می‌کنم تا دسترسی جهانی داشته باشند.<br>
-دوستدار شما — فرید ظلی پور
+                <p id="tz-para" style="display:none" dir="rtl">ⓘ منطقۀ زمانی شما «ساعت رسمی ایران» است.<br>
+هم‌میهن گرامی، مقالات به دلیل محدودیت زمانی تنها به زبان انگلیسی منتشر می‌شوند. توصیه می‌کنم برای ترجمه از هوش مصنوعی استفاده کنید.
                 </blockquote>
                 </p>
                 <script>
                 document.addEventListener('DOMContentLoaded', () => {
+                if (document.getElementById('disable-tz-message')) return;
                 const TARGET = 'Asia/Tehran';
                 try {
                     const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -93,8 +93,10 @@
                 }
                 });
                 </script>
+                <ul id="article-date"></ul>
 
-                <ul id="article-list"></ul>
+                <p><span id="disable-tz-message" style="display:none" aria-hidden="true"></span></p>
+<ul id="article-list"></ul>
             </div>
         </article>
     </main>

@@ -4,6 +4,8 @@ description: Learn more about Farid Zelli.
 hero: About me
 ---
 
+<span id="disable-tz-message" style="display:none" aria-hidden="true"></span>
+
 I'm an audio-visual creative with more than a decade of experience in the fields of networking, data privacy and open-source software. [faridzelli.com](https://faridzelli.com/) is the only personal website of Farid Zellipour.
 
 Here, I aim to cover topics I find interesting, or that may have been overlooked by major publications. My online journal is not intended to be a tech blog, but rather a place where I am able to voice my subjective opinions without having to follow the general consensus.

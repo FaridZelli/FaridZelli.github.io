@@ -2,8 +2,8 @@
 title: Articles | Farid Zelli
 description: List of articles written by Farid Zelli.
 hero: List of articles
-datePublished: 2026-01-01
-dateModified: 2026-01-01
 ---
+
+<span id="disable-tz-message" style="display:none" aria-hidden="true"></span>
 
 <ul id="article-list"></ul>
