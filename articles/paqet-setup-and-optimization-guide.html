@@ -106,9 +106,9 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Obfuscation</td>
+<td>Packet manipulation method</td>
 <td>RAW sockets</td>
-<td>Violated TCP</td>
+<td>TCP violation</td>
 </tr>
 <tr>
 <td>Transport protocol</td>
@@ -126,7 +126,7 @@
 <td>High</td>
 </tr>
 </tbody></table>
-<p>This article will focus on setting up Paqet manually for optimal performance on low-end hardware. For easy setup, see <a href="https://github.com/SamNet-dev/paqctl"><code>paqctl</code></a> on GitHub.</p>
+<p>This article will focus on setting up Paqet manually for optimal performance on low-end hardware.</p>
 <h1>Setting Up Paqet</h1>
 <blockquote>
 <p>Note: the following information is based on <code>v1.0.0-alpha.17</code> at the time of writing this article.</p>
@@ -134,9 +134,9 @@
 <p>Binaries are located at <a href="https://github.com/hanselime/paqet">hanselime/paqet/releases</a>. Paqet ships a unified executable for both servers and clients.
 Setup instructions are available on the repository: <a href="https://github.com/hanselime/paqet?tab=readme-ov-file#getting-started">Getting Started</a></p>
 <h1>Different Ways To Use Paqet</h1>
-<p>You should now have a functional local proxy running on 127.0.0.1:1080 which should be directing traffic to your server.</p>
+<p>You should now have a functional local proxy running on 127.0.0.1:1080 which is directing traffic to your server.</p>
 <h2>Sharing with other devices</h2>
-<p>It is possible to route traffic from other devices on your home network through the paqet client by setting the local proxy address to your device&#39;s IP address. In the following example, we will connect to our Packet client using <a href="https://orbot.app/en/">Orbot</a> on a phone.</p>
+<p>It is possible to route traffic from other devices on your home network through the Paqet client by changing the local proxy address to your device&#39;s IP address. In the following example, we will connect to our Packet client using <a href="https://orbot.app/en/">Orbot</a> on a phone.</p>
 <p>client.yaml</p>
 <pre><code># SOCKS5 proxy configuration (client mode)
 socks5:
@@ -233,9 +233,9 @@ Number of KCP connections. For a low performance single-core server, leave at <c
 <p><strong>mode</strong> :
 Predefined presets for KCP. Switch to <code>manual</code> for the following settings to take effect.</p>
 <p><strong>interval</strong> :
-Internal update timer interval in milliseconds. There&#39;s really no reason to change under most circumstances.</p>
+Internal update timer interval in milliseconds. There&#39;s really no reason to change this under most circumstances.</p>
 <p><strong>resend</strong> :
-Packet retransmission trigger. Leave at <code>2</code>. However stable networks may benefit from changing this to <code>0</code>.</p>
+Packet retransmission trigger. Leave at <code>2</code>. However, stable networks may benefit from changing this to <code>0</code>.</p>
 <p><strong>nocongestion</strong> :
 Disables congestion control. Set to <code>1</code>.</p>
 <p><strong>wdelay</strong> :
@@ -251,7 +251,7 @@ Maximum MTU size used by KCP. Set this to the highest possible value for your ne
 </blockquote>
 </blockquote>
 <p><strong>rcvwnd/sndwnd</strong> :
-Larger window sizes allow for more in-flight data. Set to <code>1024</code> for most use cases. Higher values may consume more memory and potentially cause instability issues over sub-optimal network conditions.</p>
+Larger window sizes allow for more in-flight data. Set to <code>1024</code> for most use cases. Higher values may consume more memory and potentially cause stability issues over sub-optimal network conditions.</p>
 <p><strong>block</strong> :
 Encryption standard used by KCP. Use <code>xor</code> (insecure algorithm, serves as basic authentication) if already tunneling encrypted traffic (e.g. WireGuard) through Paqet.  </p>
 <blockquote>

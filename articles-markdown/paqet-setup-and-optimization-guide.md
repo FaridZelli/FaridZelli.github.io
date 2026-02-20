@@ -12,12 +12,12 @@ The two projects differ in several key ways:
 
 |   | paqet | gfw_resist_tcp_proxy |
 |---|---|---|
-| Obfuscation | RAW sockets | Violated TCP |
+| Packet manipulation method | RAW sockets | TCP violation |
 | Transport protocol | KCP | QUIC |
 | Bypasses blocked ports | No | Yes |
 | Resource usage | Low | High |
 
-This article will focus on setting up Paqet manually for optimal performance on low-end hardware. For easy setup, see [`paqctl`](https://github.com/SamNet-dev/paqctl) on GitHub.
+This article will focus on setting up Paqet manually for optimal performance on low-end hardware.
 
 # Setting Up Paqet
 
@@ -28,11 +28,11 @@ Setup instructions are available on the repository: [Getting Started](https://gi
 
 # Different Ways To Use Paqet
 
-You should now have a functional local proxy running on 127.0.0.1:1080 which should be directing traffic to your server.
+You should now have a functional local proxy running on 127.0.0.1:1080 which is directing traffic to your server.
 
 ## Sharing with other devices
 
-It is possible to route traffic from other devices on your home network through the paqet client by setting the local proxy address to your device's IP address. In the following example, we will connect to our Packet client using [Orbot](https://orbot.app/en/) on a phone.
+It is possible to route traffic from other devices on your home network through the Paqet client by changing the local proxy address to your device's IP address. In the following example, we will connect to our Packet client using [Orbot](https://orbot.app/en/) on a phone.
 
 client.yaml
 ```
@@ -150,10 +150,10 @@ Number of KCP connections. For a low performance single-core server, leave at `1
 Predefined presets for KCP. Switch to `manual` for the following settings to take effect.
 
 **interval** :
-Internal update timer interval in milliseconds. There's really no reason to change under most circumstances.
+Internal update timer interval in milliseconds. There's really no reason to change this under most circumstances.
 
 **resend** :
-Packet retransmission trigger. Leave at `2`. However stable networks may benefit from changing this to `0`.
+Packet retransmission trigger. Leave at `2`. However, stable networks may benefit from changing this to `0`.
 
 **nocongestion** :
 Disables congestion control. Set to `1`.
@@ -173,7 +173,7 @@ Maximum MTU size used by KCP. Set this to the highest possible value for your ne
 > 1492 - 52 = **1440**  
 
 **rcvwnd/sndwnd** :
-Larger window sizes allow for more in-flight data. Set to `1024` for most use cases. Higher values may consume more memory and potentially cause instability issues over sub-optimal network conditions.
+Larger window sizes allow for more in-flight data. Set to `1024` for most use cases. Higher values may consume more memory and potentially cause stability issues over sub-optimal network conditions.
 
 **block** :
 Encryption standard used by KCP. Use `xor` (insecure algorithm, serves as basic authentication) if already tunneling encrypted traffic (e.g. WireGuard) through Paqet.  
