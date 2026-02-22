@@ -141,10 +141,10 @@ sudo ip -6 rule add iif eth1 lookup 20 pref 20
 
 <img src="/content/paqet-setup-and-optimization-guide/2026-02-18-cloudflare-screenshot.png" alt="Cloudflare Speed Test">
 
-Paqet's configuration file exposes advanced KCP parameters. We'll go through the most important ones:
+Paqet's configuration file exposes advanced KCP parameters. Here, we'll go through the most important ones:
 
 **conn** :
-Number of KCP connections. For a low performance single-core server, leave at `1`. Buffer sizes should be increased relative to the number of connections. Performance scales with higher values on capable hardware.
+Number of streams handled by the multiplexer. Should be equal to or greater than the number of logical cores available. Increase the SMUX buffer size relative to the number of streams as described below. Performance scales with higher values on capable hardware.
 
 **mode** :
 Predefined presets for KCP. Switch to `manual` for the following settings to take effect.
@@ -170,7 +170,7 @@ Maximum MTU size used by KCP. Set this to the highest possible value for your ne
 >> IP header: 20 bytes  
 > UDP header: 8 bytes  
 > KCP header: 24 bytes  
-> 1492 - 52 = **1440**  
+> 1492 - 52 = **1440**
 
 **rcvwnd/sndwnd** :
 Larger window sizes allow for more in-flight data. Set to `1024` for most use cases. Higher values may consume more memory and potentially cause stability issues over sub-optimal network conditions.
@@ -180,10 +180,12 @@ Encryption standard used by KCP. Use `xor` (insecure algorithm, serves as basic 
 > While more secure, performance-friendly algorithms such as `aes-128-gcm` and `salsa20` are supported, Paqet should not be used for security-sensitive applications as it has not yet been audited at the time of writing.
 
 **smuxbuf** :
-This is the aggregate read buffer for the entire SMUX multiplexer. Should be slightly higher than the size of the stream buffer, multiplied by the number of connections.
+This is the aggregate read buffer for the multiplexer. Should be higher than (or double) the size of the stream buffer, multiplied by the number of streams.
 
 **streambuf** :
-Buffer size per KCP connection. Recommended value is `8388608` (8MB) for a typical 200 Mbps connection.
+Buffer size per stream. Default is 2MB. May benefit from higher values.
+> Minimum size required for a 100 Mbps stream at 50ms RTT:  
+>> (100,000,000 / 8) * 0.05 = **625,000** bytes
 
 ## Example configuration file
 
@@ -191,7 +193,7 @@ Buffer size per KCP connection. Recommended value is `8388608` (8MB) for a typic
 # Transport protocol configuration
 transport:
   protocol: "kcp"  # Transport protocol (currently only "kcp" supported)
-  conn: 1          # Number of connections (1-256, default: 1)
+  conn: 4          # Number of connections (1-256, default: 1)
 
   # tcpbuf: 8192   # TCP buffer size in bytes
   # udpbuf: 4096   # UDP buffer size in bytes
@@ -236,7 +238,7 @@ transport:
     key: "your-secret-key-here"       # CHANGE ME: Secret key (must match client)
 
     # Buffer settings (optional)
-    smuxbuf: 16777216       # 16MB SMUX buffer
+    smuxbuf: 67108864       # 64MB SMUX buffer (4 streams)
     streambuf: 8388608     # 8MB stream buffer
 ```
 
