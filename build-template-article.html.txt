@@ -35,14 +35,13 @@
 
     <link rel="stylesheet" href="/github-markdown.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/style-article.css">
+    <link rel="stylesheet" href="/style-overrides.css">
 </head>
 
 <body>
 
-    <script src="/external-links.js"></script>
-    <script src="/dynamic-shapes-article.js"></script>
-    <script type="module" src="/article-utils.js"></script>
+    <script src="/js-dynamic-utils.js"></script>
+    <script type="module" src="/js-article-utils.js"></script>
 
 <!-- Header -->
 
@@ -62,7 +61,7 @@
 
     <main>
         <section id="hero">
-            <div class="svg-shapes"></div>
+            <div class="svg-shapes-less"></div>
             <div class="basic-container">
                 <div class="red-rectangle">
                     <div class="red-rectangle-content">

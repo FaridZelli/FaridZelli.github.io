@@ -35,14 +35,13 @@
 
     <link rel="stylesheet" href="/github-markdown.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/style-article.css">
+    <link rel="stylesheet" href="/style-overrides.css">
 </head>
 
 <body>
 
-    <script src="/external-links.js"></script>
-    <script src="/dynamic-shapes-article.js"></script>
-    <script type="module" src="/article-utils.js"></script>
+    <script src="/js-dynamic-utils.js"></script>
+    <script type="module" src="/js-article-utils.js"></script>
 
 <!-- Header -->
 
@@ -62,7 +61,7 @@
 
     <main>
         <section id="hero">
-            <div class="svg-shapes"></div>
+            <div class="svg-shapes-less"></div>
             <div class="basic-container">
                 <div class="red-rectangle">
                     <div class="red-rectangle-content">
@@ -235,13 +234,13 @@ Predefined presets for KCP. Switch to <code>manual</code> for the following sett
 <p><strong>interval</strong> :
 Internal update timer interval in milliseconds. There&#39;s really no reason to change this under most circumstances.</p>
 <p><strong>resend</strong> :
-Packet retransmission trigger. Leave at <code>2</code>. However, stable networks may benefit from changing this to <code>0</code>.</p>
+Packet retransmission trigger. Set to <code>2</code>.</p>
 <p><strong>nocongestion</strong> :
 Disables congestion control. Set to <code>1</code>.</p>
 <p><strong>wdelay</strong> :
-Enables write batching. Set to <code>true</code> for most use cases.</p>
+Enables write batching. Set to <code>true</code>.</p>
 <p><strong>acknodelay</strong> :
-Disables ACK batching. Set to <code>false</code> for most use cases.</p>
+Disables ACK batching. Set to <code>false</code>.</p>
 <p><strong>mtu</strong> :
 Maximum MTU size used by KCP. Set this to the highest possible value for your network.  </p>
 <blockquote>

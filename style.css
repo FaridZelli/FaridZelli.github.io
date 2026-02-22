@@ -116,24 +116,8 @@ main article {
 }
 
 .article-container {
-	width: 100%;
-	max-width: 800px;
+	max-width: 900px;
 	margin: 0 auto;
-}
-
-.article-container h1 {
-	margin-top: 1rem;
-/* 	margin-bottom: 1rem; */
-}
-
-.article-container h2 {
-	margin-top: 1rem;
-/* 	margin-bottom: 1rem; */
-}
-
-.article-container h3 {
-	margin-top: 1rem;
-/* 	margin-bottom: 1rem; */
 }
 
 .article-container p {
@@ -471,18 +455,6 @@ padding: 1rem 0;
 		padding: 3rem;
 	}
 
-	h1 {
-		font-size: 1.6rem;
-	}
-
-	h2 {
-		font-size: 1.4rem;
-	}
-
-	h3 {
-		font-size: 1.2rem;
-	}
-
 	#hero {
 	min-height: 100vh;
 	padding: 5rem 0;
@@ -568,7 +540,17 @@ padding: 1rem 0;
 /* --- Floating Shapes --- */
 /* ---------------------------------------- */
 
-.svg-shapes {
+.svg-shapes-less {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.svg-shapes-more {
 	position: absolute;
 	top: 0;
 	left: 0;

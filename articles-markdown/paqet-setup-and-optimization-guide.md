@@ -153,16 +153,16 @@ Predefined presets for KCP. Switch to `manual` for the following settings to tak
 Internal update timer interval in milliseconds. There's really no reason to change this under most circumstances.
 
 **resend** :
-Packet retransmission trigger. Leave at `2`. However, stable networks may benefit from changing this to `0`.
+Packet retransmission trigger. Set to `2`.
 
 **nocongestion** :
 Disables congestion control. Set to `1`.
 
 **wdelay** :
-Enables write batching. Set to `true` for most use cases.
+Enables write batching. Set to `true`.
 
 **acknodelay** :
-Disables ACK batching. Set to `false` for most use cases.
+Disables ACK batching. Set to `false`.
 
 **mtu** :
 Maximum MTU size used by KCP. Set this to the highest possible value for your network.  

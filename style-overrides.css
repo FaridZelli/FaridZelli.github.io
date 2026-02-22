@@ -54,6 +54,37 @@
 }
 
 /* ---------------------------------------- */
+/* --- Code Blocks --- */
+/* ---------------------------------------- */
+
+.markdown-body pre {
+	position: relative;
+	border-radius: 12px;
+	padding-bottom: 0;
+}
+
+.markdown-body pre code {
+	display: block;
+	padding: 1rem 0;
+	overflow-x: auto;
+	min-height: 50px;
+}
+
+.copy-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: var(--fgColor-muted);
+	color: var(--bgColor-muted);
+	border: none;
+	border-radius: 0 12px 0 12px;
+	padding: 4px 8px;
+	font-size: 0.75rem;
+	cursor: pointer;
+	min-width: 4rem;
+}
+
+/* ---------------------------------------- */
 /* --- Hero Section --- */
 /* ---------------------------------------- */
 
