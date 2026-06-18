@@ -130,7 +130,6 @@ main article {
 /* ---------------------------------------- */
 
 header {
-	padding: 0.6rem 0;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -148,11 +147,12 @@ header {
 		background-color: rgba(40, 40, 40, 0.8);
 		backdrop-filter: blur(10px);
 		-webkit-backdrop-filter: blur(10px);
-		padding: 1.2rem 0;
+		padding: 0.5rem 0;
 	}}
 }
 
 header .basic-container {
+	min-height: 56px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -160,9 +160,9 @@ header .basic-container {
 }
 
 header .logo {
-	font-size: 1.8rem;
+	font-size: 24px;
 	font-weight: bold;
-	margin: 0 1.5rem;
+	margin-left: 1.5rem;
 }
 
 header .logo a {
@@ -210,8 +210,8 @@ header nav a {
 position: relative;
 overflow: hidden;
 width: 100%;
-padding: 3rem 0;
-padding-top: 7rem;
+padding-top: 100px;
+padding-bottom: 44px;
 background-color: #121212;
 display: flex;
 align-items: center;
@@ -428,38 +428,18 @@ padding: 1rem 0;
 		font-size: 15px;
 	}
 
-	@media (hover: hover) {a:hover, a:focus {
-		text-decoration: unset;
-	}}
-
-	header .basic-container {
-		height: 2.5rem;
-		flex-direction: row;
-		align-items: center;
-	}
-
-	header nav ul {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
 	header nav a {
 		margin-right: 1.2rem;
 	}
 
 	header .logo {
-		font-size: 1.6rem;
-		font-weight: bold;
-		margin: 0 1.2rem;
-	}
-
-	main section {
-		padding: 3rem;
+		margin-left: 1.2rem;
 	}
 
 	#hero {
 	min-height: 100vh;
-	padding: 5rem 0;
+	padding: 0 0;
+	padding-bottom: 5vh;
 	}
 
 	.red-rectangle {
@@ -481,7 +461,7 @@ padding: 1rem 0;
 	}
 
 	.profile img {
-		width: 75%;
+		width: 50vw;
 		max-width: 16rem;
 		margin: auto;
 	}
@@ -517,7 +497,7 @@ padding: 1rem 0;
 
 	@media (max-height: 412px) {
 		header .basic-container {
-			height: 1.5rem;
+			min-height: 3rem;
 		}
 		header .logo {
 			display:none;
