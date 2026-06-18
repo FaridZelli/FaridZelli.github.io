@@ -66,7 +66,7 @@ function processFile(filePath, config) {
     const replacements = {
       '{{TITLE}}': String(attributes.title ?? '').trim(),
       '{{DESCRIPTION}}': String(attributes.description ?? '').trim(),
-      '{{HERO}}': String(attributes.hero ?? '').trim(),
+      '{{HERO}}': String(attributes.hero ?? '').trim() || String(attributes.title ?? '').trim(),
       '{{DATE_PUBLISHED}}': String(attributes.datePublished ?? '').trim(),
       '{{DATE_MODIFIED}}': String(attributes.dateModified ?? '').trim(),
       '{{URL}}': templateUrl,

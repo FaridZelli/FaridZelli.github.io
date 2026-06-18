@@ -3,7 +3,7 @@ title: Paqet basics, server–client setup and KCP optimization guide
 description: Explore the inner workings of hanselime/paqet and learn how to set up KCP for optimal performance.
 hero: 'Meet Paqet: the basics, server–client setup and KCP optimization guide.'
 datePublished: 2026-02-20
-dateModified: 2026-02-20
+dateModified: 2026-06-18
 ---
 
 [`paqet`](https://github.com/hanselime/paqet) is a new low-level proxy utility designed to bypass highly restrictive firewalls. The project revolves around the concept of raw sockets, drawing inspiration from [`gfw_resist_tcp_proxy`](https://github.com/GFW-knocker/gfw_resist_tcp_proxy).
@@ -21,7 +21,7 @@ This article will focus on setting up Paqet manually for optimal performance on 
 
 # Setting Up Paqet
 
-> Note: the following information is based on `v1.0.0-alpha.17` at the time of writing this article.
+> Note: the following information is based on `v1.0.0-alpha.19` at the time of writing this article.
 
 Binaries are located at [hanselime/paqet/releases](https://github.com/hanselime/paqet). Paqet ships a unified executable for both servers and clients.
 Setup instructions are available on the repository: [Getting Started](https://github.com/hanselime/paqet?tab=readme-ov-file#getting-started)

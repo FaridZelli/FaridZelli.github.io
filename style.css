@@ -143,7 +143,7 @@ header {
 	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 769px) and (min-height: 413px) {
 	@media (hover: hover) {header:hover {
 		background-color: rgba(40, 40, 40, 0.8);
 		backdrop-filter: blur(10px);
@@ -175,10 +175,6 @@ header nav ul {
 	display: flex;
 }
 
-header nav li {
-/* 	margin: 0 1.5rem; */
-}
-
 header nav a {
 	font-weight: bold;
 	font-size: 1rem;
@@ -189,7 +185,7 @@ header nav a {
 	margin-right: 1.5rem;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 769px) and (min-height: 413px) {
 	@media (hover: hover) {header .logo a:hover {
 		color: white;
 		text-decoration: none;
@@ -431,7 +427,7 @@ padding: 1rem 0;
 	}}
 
 	header .basic-container {
-		height: 2.8rem;
+		height: 2.5rem;
 		flex-direction: row;
 		align-items: center;
 	}
@@ -458,7 +454,7 @@ padding: 1rem 0;
 	#hero {
 	min-height: 100vh;
 	padding: 5rem 0;
-	padding-bottom: 8rem;
+/* 	padding-bottom: 8rem; */
 	}
 
 	.red-rectangle {
@@ -516,13 +512,16 @@ padding: 1rem 0;
 
 	@media (max-height: 412px) {
 		header .basic-container {
-			height: 2.5rem;
+			height: 1.5rem;
+		}
+		header .logo {
+			font-size: 1rem;
 		}
 		.profile img {
 			display: none;
 		}
 		#hero {
-		padding: 8rem 0;
+/* 		padding: 8rem 0; */
 		}
 		.red-rectangle-content {
 			margin-top: 0rem;
@@ -531,7 +530,7 @@ padding: 1rem 0;
 
 }
 
-@media (min-width: 769px) {
+@media (min-width: 769px) and (min-height: 413px) {
   .scroll-arrow {
   	display: none;
 }}
