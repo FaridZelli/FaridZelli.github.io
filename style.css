@@ -196,6 +196,12 @@ header nav a {
 	}}
 }
 
+@media (min-height: 413px) {
+	header .logo-landscape {
+		display: none;
+	}
+}
+
 /* ---------------------------------------- */
 /* --- Hero Section --- */
 /* ---------------------------------------- */
@@ -516,11 +522,17 @@ padding: 1rem 0;
 		header .logo {
 			display:none;
 		}
+		header nav a {
+			margin: 0 1.2rem;
+		}
 		.profile img {
 			display: none;
 		}
 		.red-rectangle-content {
 			margin-top: 0rem;
+		}
+		.article-container {
+			margin: 0 2.5rem;
 		}
 	}
 
