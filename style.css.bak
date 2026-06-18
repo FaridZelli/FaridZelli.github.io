@@ -156,9 +156,7 @@ header .basic-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: nowrap;
-	overflow-x: auto;
-	white-space: nowrap;
+	flex-wrap: wrap;
 }
 
 header .logo {
@@ -212,7 +210,8 @@ header nav a {
 position: relative;
 overflow: hidden;
 width: 100%;
-padding: 0 0;
+padding-top: 100px;
+padding-bottom: 44px;
 background-color: #121212;
 display: flex;
 align-items: center;
@@ -233,8 +232,6 @@ justify-content: center;
 	gap: 4rem;
 	box-shadow: 0 0 3rem rgba(0, 0, 0, 0.8);
 	transition: box-shadow 0.5s ease-in-out 0.1s, background-color 0.5s ease-in-out 0.1s;
-	margin-top: 96px;
-	margin-bottom: 42px;
 }
 
 .red-rectangle-content {
@@ -432,16 +429,17 @@ padding: 1rem 0;
 	}
 
 	header nav a {
-		margin-right: 1rem;
+		margin-right: 1.2rem;
 	}
 
 	header .logo {
-		margin: 0 1rem;
+		margin-left: 1.2rem;
 	}
 
 	#hero {
 	min-height: 100vh;
 	padding: 0 0;
+	padding-bottom: 5vh;
 	}
 
 	.red-rectangle {
@@ -450,7 +448,6 @@ padding: 1rem 0;
 		align-items: center;
 		padding: 1rem;
 		gap: 0;
-		margin-bottom: 15vh;
 	}
 
 	.red-rectangle .profile {
