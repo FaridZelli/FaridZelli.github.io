@@ -499,6 +499,9 @@ padding: 1rem 0;
 	}
 
 	@media (max-height: 412px) {
+		#hero {
+		align-items: flex-start;
+		}
 		header .basic-container {
 			min-height: 3rem;
 		}
@@ -513,7 +516,7 @@ padding: 1rem 0;
 		}
 		.red-rectangle {
 			margin-top: 4rem;
-			margin-bottom: 4rem;
+/* 			margin-bottom: 100%; */
 		}
 		.red-rectangle-content {
 			margin-top: 0rem;
